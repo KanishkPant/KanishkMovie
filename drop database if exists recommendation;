@@ -1,0 +1,47 @@
+drop database if exists recommendation;
+create database recommendation;
+use recommendation;
+create table movies(
+    m_id int primary key,
+    m_name varchar(100),
+    m_imdb float,
+    m_rating int default NULL
+);
+insert into movies (m_id, m_name, m_imdb)
+    values (1, 'HARRY POTTER AND THE PHILOSPHERS STONE', 7.6),
+           (2, 'HARRY POTTER AND THE CHAMBER OF SECRETS', 7.4),
+           (3, 'HARRY POTTER AND THE PRISONER OF ASKABAN', 7.8),
+           (4, 'HARRY POTTER AND THE GOBLET OF FIRE', 7.7),
+           (5, 'HARRY POTTER AND THE ORDER OF PHEONIX', 7.5),
+           (6, 'HARRY POTTER AND THE HALF BLOOD PRINCE', 7.6),
+           (7, 'HARRY POTTER AND THE DEATHLY HALLOWS PART 1', 7.7),
+           (8, 'HARRY POTTER AND THE DEATHLY HALLOWS PART 2', 8.1);
+create table g_action(
+    m_id int primary key
+);
+insert into g_action
+    values (1);
+create table g_fantasy(
+    m_id int primary key
+);
+create table g_horror(
+    m_id int primary key
+);
+create table g_comedy(
+    m_id int primary key
+);
+create table g_drama(
+    m_id int primary key
+);
+create table g_animated(
+    m_id int primary key
+);
+create table users(
+    u_id int,
+    u_name varchar(20)
+);
+create table user_ratings(
+    u_id int,
+    m_id int,
+    m_rating float
+);
